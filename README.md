@@ -31,10 +31,10 @@ traces/      Trace files used by test-csim.c
 1. *void readcommand(int argc, char argv)*：用于读取linux的命令行参数，可读取-v（可选）、-s、-E、-b、-t参数。其中-v是可选参数，-s、-E、-b、-t 则是必要参数。执行时通过命令行输入缓存参数和要读取的缓存文件，在命令行输出执行的结果。
 
 	- -v：可选参数，用于将trace文件中的每一条指令的cache命中情况打印出来；
-	- -s  s：64位16进制地址中的组索引位数；
-	- -E  E：cache中每组包含的行数；
-	- -b  b：64位16进制地址中的块（block）索引位数；
-	- -t  tracefile：需要执行的valgrind程序生成的trace文件的地址
+	- -s  &lt;s&gt;：64位16进制地址中的组索引位数；
+	- -E  &lt;E&gt;：cache中每组包含的行数；
+	- -b  &lt;b&gt;：64位16进制地址中的块（block）索引位数；
+	- -t  &lt;tracefile&gt;：需要执行的valgrind程序生成的trace文件的地址
 2. *void create_cache()*：用于根据从命令行输入中读取的s、e参数确定的组数和行数，用malloc函数为模拟cache分配内存空间。由于本程序将cache、setnum（组数）、linenum（行数）均设为全局变量，本函数不需要输入参数。
 3. *void free_cache()*：用于在cache模拟结束后使用free函数释放分配给cache的内存。
 4. *int getTag(int s,int b,int address)*：用于从trace文件读取的指令的地址项中取得tag标志位，其中输入参数s为地址中的组索引位数，b为地址中的块索引位数，address为地址项，返回值为tag标志位。

@@ -191,7 +191,7 @@ int main(int argc, char **argv)
                 access_mem(set,tag);
                 break;
         }
-        LRUupdate();//每次执行指令后更新cache中的全部行
+        LRUupdate();//每次执行指令后更新cache中的全部有效行
         if(set_v)
             printf("\n");
     }     
